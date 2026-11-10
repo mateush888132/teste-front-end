@@ -1,0 +1,74 @@
+.product-card {
+  display: flex;
+  min-width: 0;
+  min-height: 500px;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 7px 23px rgb(0 0 0 / 18%);
+  &__image-button {
+    display: grid;
+    height: 264px;
+    padding: 14px 14px 0;
+    place-items: center;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+  &__image { display: block; width: min(100%, 190px); height: 100%; max-height: 220px; object-fit: contain; }
+  &__details { display: flex; flex: 1; flex-direction: column; padding: 4px 13px 16px; }
+  &__description { min-height: 52px; margin: 0 0 6px; font-size: 14px; line-height: 1.65; font-weight: 400; }
+  &__price { margin: 0; color: #414141; font-size: 20px; line-height: 1.45; font-weight: 700; }
+  &__installments { margin: 1px 0 6px; font-size: 12px; white-space: nowrap; }
+  &__shipping { margin: 0 0 12px; color: var(--brand-blue); font-size: 12px; }
+  &__buy {
+    width: 100%;
+    min-height: 44px;
+    margin-top: auto;
+    border: 0;
+    border-radius: 5px;
+    background: var(--brand-blue);
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    &:hover { background: #2e37a4; }
+  }
+}
+
+.modal-backdrop {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  display: grid;
+  padding: 24px;
+  place-items: center;
+  background: rgb(0 0 0 / 52%);
+}
+.product-modal {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(220px, .9fr) minmax(260px, 1fr);
+  gap: 32px;
+  width: min(100%, 760px);
+  padding: 38px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 16px 48px rgb(0 0 0 / 24%);
+  &__close { position: absolute; top: 10px; right: 15px; border: 0; background: none; color: #414141; cursor: pointer; font-size: 32px; line-height: 1; }
+  &__media { display: grid; min-height: 300px; place-items: center; img { width: 100%; max-height: 340px; object-fit: contain; } }
+  &__content { align-self: center; }
+  &__eyebrow { color: var(--brand-blue); font-size: 12px; font-weight: 700; letter-spacing: .1em; }
+  h2 { margin: 8px 0; font-size: 24px; line-height: 1.35; }
+  &__description { color: #666; line-height: 1.6; }
+  &__price { margin: 22px 0 0; font-size: 27px; font-weight: 700; }
+  &__installments { margin: 2px 0; font-size: 14px; }
+  &__shipping { color: var(--brand-blue); }
+  &__buy { width: 100%; min-height: 52px; margin-top: 10px; border: 0; border-radius: 5px; background: var(--brand-blue); color: white; cursor: pointer; font-weight: 700; }
+}
+
+@media (max-width: 600px) {
+  .product-card { min-height: 500px; &__image-button { height: 264px; } }
+  .product-modal { grid-template-columns: 1fr; gap: 12px; max-height: calc(100vh - 32px); overflow: auto; padding: 28px 24px; &__media { min-height: 190px; img { max-height: 220px; } } }
+}
